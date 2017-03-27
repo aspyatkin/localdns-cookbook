@@ -1,0 +1,9 @@
+listen-address=<%= @listen_address %>
+
+<% @forward_servers.each do |ip_address| %>
+server=<%= ip_address %>
+<% end %>
+
+<% @local_records.each do |domain, ip_address| %>
+host-record=<%= domain %>,<%= ip_address %>
+<% end %>
