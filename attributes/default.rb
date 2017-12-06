@@ -11,5 +11,3 @@ default[id]['forward_servers'] = %w(
   208.67.222.222
   208.67.220.220
 )
-
-default[id]['local_records'] = {}
