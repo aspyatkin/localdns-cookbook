@@ -20,3 +20,8 @@ localdns_config 'localhost' do
   forward_servers node[id]['forward_servers']
   action :update
 end
+
+localdns_resolve 'localhost' do
+  records node[id]['records']
+  action :update
+end
