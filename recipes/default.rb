@@ -15,7 +15,7 @@ replace_line node[id]['service']['conf_file'] do
 end
 
 localdns_config 'localhost' do
-  listen_address '127.0.0.1'
+  listen_address node[id]['listen_address']
   bind_interfaces true
   forward_servers node[id]['forward_servers']
   action :update
