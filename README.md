@@ -26,7 +26,7 @@ end
 
 ## Notes
 
-To avoid conflicts with `systemd-resolved`, one may set enable `bind_interfaces` in `localdns_install` resource and use the following snippet in their Chef recipes:
+To avoid conflicts with `systemd-resolved`, one may enable `bind_interfaces` in `localdns_install` resource and use the following snippet in their Chef recipes:
 
 ```ruby
 service 'systemd-resolved' do
