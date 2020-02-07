@@ -6,8 +6,9 @@ property :service_conf_file, String, default: '/etc/dnsmasq.conf'
 property :service_conf_dir, String, default: '/etc/dnsmasq.d'
 
 property :listen_address, String, required: true
-property :bind_interfaces, [TrueClass, FalseClass], default: false
 property :forward_servers, Array, default: %w[8.8.8.8 1.1.1.1 8.8.4.4 1.0.0.1]
+property :flags, Array, default: %w[]
+property :options, Hash, default: {}
 property :records, Array, default: %w[]
 
 default_action :run
@@ -37,8 +38,9 @@ action :run do
     source 'default.conf.erb'
     variables(
       listen_address: new_resource.listen_address,
-      bind_interfaces: new_resource.bind_interfaces,
-      forward_servers: new_resource.forward_servers
+      forward_servers: new_resource.forward_servers,
+      flags: new_resource.flags,
+      options: new_resource.options
     )
     mode 0o664
     action :create
