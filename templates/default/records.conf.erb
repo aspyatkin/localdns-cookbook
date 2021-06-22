@@ -8,4 +8,7 @@ cname=<%= record['cname'] %>,<%= record['target'] %>
 <% if record.fetch('type', nil) == 'SRV' %>
 srv-host=_<%= record['service'] %>._<%= record['protocol'] %>.<%= record['domain'] %>,<%= record['target'] %>,<%= record['port'] %>,<%= record.fetch('priority', 0) %>,<%= record.fetch('weight', 0) %>
 <% end %>
+<% if record.fetch('type', nil) == 'PTR' %>
+ptr-record=<%= record['name'] %>,<%= record['target'] %>
+<% end %>
 <% end %>

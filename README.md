@@ -12,11 +12,16 @@ localdns_install 'default' do
     {
       'type' => 'A',
       'name' => 'acme.corp',
-      'ipv4_address' => '127.0.0.1'
+      'ipv4_address' => '1.2.3.4'
     },
     {
       'type' => 'CNAME',
       'cname' => 'www.acme.corp',
+      'target' => 'acme.corp.'
+    },
+    {
+      'type' => 'PTR',
+      'name' => '4.3.2.1.in-addr.arpa',
       'target' => 'acme.corp.'
     }
   ])
